@@ -1,7 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 
-// App.css import removed as we're using Tailwind
-
 function App() {
   const [length, setlength] = useState(8);
   const [numberallowed, setnumber] = useState(false);
@@ -17,11 +15,11 @@ function App() {
     if (charallowed) str += "!@#$%^&*()_+";
     for (let i = 0; i < length; i++) {
       const char = Math.floor(Math.random() * str.length);
-      pass += str.charAt(char); //char at position this simply makes indexing
+      pass += str.charAt(char);
     }
 
     setpassword(pass);
-  }, [length, numberallowed, charallowed]); //this dosent change frequently these change frequently
+  }, [length, numberallowed, charallowed]);
 
   useEffect(() => {
     generatepassword();
@@ -30,7 +28,7 @@ function App() {
   const copypassword = () => {
     window.navigator.clipboard.writeText(password);
     passref.current.select();
-  }; //same everywhere
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
